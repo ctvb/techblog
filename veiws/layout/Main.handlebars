@@ -7,6 +7,23 @@
     <title>TechTalk</title>
 </head>
 <body>
+    <div class="flex-column justify-space-around">
+        <header class="display-flex justify-space-between align-center p-2">
+            {{#if logged_in}}
+            <h1></h1>
+            {{else}}
+            <h1 class="text-center">TechTalk</h1>
+            {{/if}}
+        </header>
+        <main class="container">
+            {{{ body }}}
+        </main>
+        <footer>
     
+        </footer>
+    </div>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
