@@ -3,7 +3,22 @@
         <label for="postTitle"></label>
         <h2>{{post.postTitle}}</h2>
         <p>{{post.content}}</p>
+        <p>Authored by {{post.user.username}}</p>
     </div>
+
+    {{#if post.comments}}
+        <section>
+            <h4>
+                Comments
+            </h4>
+            <div class="card">
+                {{#each post.comments}}
+                <p>{{comment}}</p>
+                {{/each}}
+            </div>
+        </section>
+    {{/if}}
+
     <div class="form-group">
         <label for="comment">Comment:</label>
         <textarea class="form-input" id="comment" name="comment">{{comment}}</textarea>
