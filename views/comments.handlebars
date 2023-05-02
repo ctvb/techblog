@@ -1,4 +1,4 @@
-<form class="form add-comment" data-id="{{id}}">
+<form class="form add-comment" data-id="{{post.id}}">
     <div class="form-group">
         <label for="postTitle"></label>
         <h2>{{post.postTitle}}</h2>
@@ -14,6 +14,7 @@
             <div class="card">
                 {{#each post.comments}}
                 <p>{{comment}}</p>
+                <p>{{user.username}}</p>
                 {{/each}}
             </div>
         </section>

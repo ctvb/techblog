@@ -82,7 +82,8 @@ router.get('/comment/:id', async (req, res) => {
           attributes: ['username'],
         },
         {
-          model: Comment
+          model: Comment,
+          include: [User]
         }
       ],
     });
