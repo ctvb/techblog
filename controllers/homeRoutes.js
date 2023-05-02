@@ -2,6 +2,30 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// router.get('/', async (req, res) => {
+//   try {
+//     const dbGalleryData = await Gallery.findAll({
+//       include: [
+//         {
+//           model: Painting,
+//           attributes: ['filename', 'description'],
+//         },
+//       ],
+//     });
+
+//     const galleries = dbGalleryData.map((gallery) =>
+//       gallery.get({ plain: true })
+//     );
+
+//     res.render('homepage', {
+//       galleries,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -66,7 +90,7 @@ router.get('/comment/:id', async (req, res) => {
     const post = postData.get({ plain: true });
     console.log(post)
     res.render('comments', {
-      ...post,
+      post,
       logged_in: req.session.logged_in
     });
   // } catch (err) {
