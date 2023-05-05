@@ -1,7 +1,6 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
 
-    // const needed_funding = document.querySelector('#project-funding').value.trim();
     const comment = document.querySelector('#comment').value.trim();
     const post_id = event.target.getAttribute('data-id');
     alert(post_id + comment)

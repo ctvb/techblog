@@ -2,30 +2,6 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// router.get('/', async (req, res) => {
-//   try {
-//     const dbGalleryData = await Gallery.findAll({
-//       include: [
-//         {
-//           model: Painting,
-//           attributes: ['filename', 'description'],
-//         },
-//       ],
-//     });
-
-//     const galleries = dbGalleryData.map((gallery) =>
-//       gallery.get({ plain: true })
-//     );
-
-//     res.render('homepage', {
-//       galleries,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -74,7 +50,6 @@ router.get('/post/:id', async (req, res) => {
 });
 
 router.get('/comment/:id', async (req, res) => {
-  // try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {
@@ -94,9 +69,6 @@ router.get('/comment/:id', async (req, res) => {
       post,
       logged_in: req.session.logged_in
     });
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
 });
 
 // Use withAuth middleware to prevent access to route

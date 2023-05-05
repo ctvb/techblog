@@ -1,3 +1,4 @@
+{{!-- CREATES  HEADER OF COMMENT SECTION SHOWING THE TITLE AND CONTENT OF THE POST--}}
 <form class="form add-comment" data-id="{{post.id}}">
     <div class="form-group">
         <label for="postTitle"></label>
@@ -6,6 +7,7 @@
         <p>Authored by {{post.user.username}}</p>
     </div>
 
+    {{!-- CREATES THE SECTION THAT HOUSES COMMENTS --}}
     {{#if post.comments}}
         <section>
             <h4>
@@ -19,7 +21,7 @@
             </div>
         </section>
     {{/if}}
-
+    {{!-- CREATES THE SECTION TO WRITE NEW COMMENTS --}}
     <div class="form-group">
         <label for="comment">Comment:</label>
         <textarea class="form-input" id="comment" name="comment">{{comment}}</textarea>
@@ -29,22 +31,5 @@
     </div>
 </form>
 
-<div class="add-comment">
-    <div class="col-md-6">
-        {{!-- <h3>Comments:</h3> --}}
-
-        {{!-- <form class="form new-project-form">
-            <div class="form-group">
-                <label for="content">Comments:</label>
-                <textarea class="form" id="content" name="content"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-        </form> --}}
-    </div>
-
-    
-</div>
-
+{{!-- LINKS THE COMMENTS.JS --}}
 <script src="/js/comment.js"></script>
